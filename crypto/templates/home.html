@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid bg-dark text-light p-5">
+    <div class="container bg-dark p-5">
+        <h1 class="display-4">Welcome to my Crypto Website</h1>
+        <hr>
+        <p>Go to My Website</p>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        {% for x in api.Data %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                  <img src="{{ x.imageurl }}" class="card-img-top" alt="{{ x.source }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ x.title }}</h5>
+                    <p class="card-text">{{ x.body }}</p>
+                    <a href="{{ x.url }} " class="btn btn-secondary">Read more...</a>
+                  </div>
+                </div>
+                <br/>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{{ api.Data }}
+
+
+{% endblock %}
